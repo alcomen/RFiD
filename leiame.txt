@@ -1,0 +1,6 @@
+Primeiro habilitar interface SPI na raspberry via 
+Menu->Preferences->Raspberry Pi Configuration
+
+Instalar os arquivos contidos na pasta SPI-py e 
+usado: sudo python setup.py install
+
