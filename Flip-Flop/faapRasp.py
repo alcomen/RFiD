@@ -30,7 +30,7 @@ def sendDataBluemix(rfidCode):
 
 	gatewayCli.connect()
 
-	myGatewayData = {'status':'working'}
+	myGatewayData = {'status':'alessandro'}
 	myDataSensor = {'dataSen': 'teste'}
 
 	gatewayCli.setMessageEncoderModule('json', jsonCodec)
