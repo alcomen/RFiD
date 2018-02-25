@@ -30,8 +30,8 @@ def sendDataBluemix(rfidCode):
 
 	gatewayCli.connect()
 
-	myGatewayData = {'status':'alessandro'}
-	myDataSensor = {'dataSen': 'teste'}
+	myGatewayData = {'status':'alessandro', 'rfid': rfidCode }
+	#myDataSensor = {'dataSen': 'teste'}
 
 	gatewayCli.setMessageEncoderModule('json', jsonCodec)
 
@@ -39,16 +39,16 @@ def sendDataBluemix(rfidCode):
 	try:
 		gatewaySuccess = gatewayCli.publishGatewayEvent("greeting", "json", myGatewayData, qos=1,
 													on_publish=myOnPublishCallback)
-		deviceSuccess = gatewayCli.publishDeviceEvent("raspProd", rfidCode, "data", "json", myDataSensor, qos=1,
-												  on_publish=myOnPublishCallback)
+		#deviceSuccess = gatewayCli.publishDeviceEvent("raspProd", rfidCode, "data", "json", myDataSensor, qos=1,
+		#										  on_publish=myOnPublishCallback)
 	except Exception as e:
 		print("Caught exception publishing device: %s" % str(e))
 
 	if not gatewaySuccess:
 		print("Gateway not connected to IBM Watson IoT Platform while publishing from Gateway")
 
-	if not deviceSuccess:
-		print("Gateway not connected to IBM Watson IoT Platform while publishing from Gateway on behalf of a device")
+#	if not deviceSuccess:
+		#print("Gateway not connected to IBM Watson IoT Platform while publishing from Gateway on behalf of a device")
 
 	gatewayCli.disconnect()
 
